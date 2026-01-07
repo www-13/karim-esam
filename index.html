@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كريم عصام | مدرس اللغة العربية والأدب</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=El+Messiri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --secondary-green: #006442;
+            --accent-brown: #8B4513;
+            --light-beige: #F5F1E8;
+            --dark-brown: #3D2B1F;
+            --gradient-gold: linear-gradient(135deg, var(--primary-gold), #FFD700);
+            --gradient-green: linear-gradient(135deg, var(--secondary-green), #008552);
+            --arabic-pattern: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23006442' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Noto Naskh Arabic', serif;
+            line-height: 1.8;
+            color: var(--dark-brown);
+            background-color: var(--light-beige);
+            overflow-x: hidden;
+            text-align: right;
+            direction: rtl;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'El Messiri', sans-serif;
+            font-weight: 700;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--light-beige);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-green);
+            border-radius: 6px;
+        }
+        
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark-brown);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        
+        .arabic-loader {
+            position: relative;
+            width: 150px;
+            height: 150px;
+        }
+        
+        .arabic-symbol {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 5rem;
+            color: var(--primary-gold);
+            font-weight: bold;
+            font-family: 'Noto Naskh Arabic', serif;
+        }
+        
+        .arabic-loader::before,
+        .arabic-loader::after {
+            content: '';
+            position: absolute;
+            border: 4px solid transparent;
+            border-top-color: var(--primary-gold);
+            border-radius: 50%;
+            animation: spin 1.5s linear infinite;
+        }
+        
+        .arabic-loader::before {
+            width: 150px;
+            height: 150px;
+            animation-duration: 1.5s;
+        }
+        
+        .arabic-loader::after {
+            width: 100px;
+            height: 100px;
+            top: 25px;
+            left: 25px;
+            animation-duration: 1s;
+            animation-direction: reverse;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 25px 0;
+            z-index: 1000;
+            transition: all 0.4s ease;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-left: 15px;
+            font-family: 'Noto Naskh Arabic', serif;
+        }
+        
+        .logo-text {
+            font-family: 'El Messiri', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary-green);
+        }
+        
+        .logo-text span {
+            color: var(--primary-gold);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-right: 35px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            color: var(--dark-brown);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 8px 0;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: var(--gradient-green);
+            right: 0;
+            bottom: 0;
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 100%;
+        }
+        
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: var(--secondary-green);
+        }
+        
+        .cta-button {
+            background: var(--gradient-green);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(0, 100, 66, 0.2);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 100, 66, 0.3);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--dark-brown);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 100px;
+            overflow: hidden;
+            background-color: var(--light-beige);
+            background-image: var(--arabic-pattern);
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        
+        .hero-text {
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--secondary-green);
+            margin-bottom: 15px;
+            display: block;
+            font-weight: 600;
+        }
+        
+        .hero-title {
+            font-size: 4.2rem;
+            line-height: 1.2;
+            margin-bottom: 25px;
+            color: var(--dark-brown);
+            position: relative;
+        }
+        
+        .hero-title span {
+            color: var(--secondary-green);
+            position: relative;
+        }
+        
+        .hero-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            right: 0;
+            width: 120px;
+            height: 4px;
+            background: var(--gradient-gold);
+        }
+        
+        .hero-description {
+            font-size: 1.3rem;
+            color: #555;
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .hero-image {
+            position: relative;
+            animation: fadeIn 1.5s ease;
+        }
+        
+        .arabic-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .shape {
+            position: absolute;
+            background: var(--gradient-green);
+            opacity: 0.1;
+        }
+        
+        .circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            top: -50px;
+            left: 50px;
+        }
+        
+        .semi-circle {
+            width: 150px;
+            height: 75px;
+            background: var(--primary-gold);
+            border-radius: 150px 150px 0 0;
+            bottom: 50px;
+            right: -50px;
+            opacity: 0.1;
+            transform: rotate(180deg);
+        }
+        
+        .arabesque {
+            width: 120px;
+            height: 120px;
+            bottom: 100px;
+            left: 100px;
+            background: var(--gradient-green);
+            opacity: 0.05;
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        }
+        
+        .hero-img-container {
+            width: 100%;
+            max-width: 500px;
+            margin-right: auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+            position: relative;
+            border: 5px solid var(--light-beige);
+        }
+        
+        .hero-img-container::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            left: -10px;
+            bottom: -10px;
+            background: var(--gradient-green);
+            border-radius: 30px;
+            z-index: -1;
+            opacity: 0.2;
+        }
+        
+        .hero-img-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .hero-img-container:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* About Section */
+        .section {
+            padding: 120px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .section-title h2 {
+            font-size: 3.5rem;
+            color: var(--secondary-green);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-gold);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 25px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            border-top: 4px solid var(--secondary-green);
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary-green);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+        
+        .stat-text {
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        /* Philosophy Section */
+        .philosophy {
+            background-color: #f8f9fa;
+            background-image: var(--arabic-pattern);
+        }
+        
+        .philosophy-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .philosophy-quote {
+            font-size: 1.9rem;
+            font-style: italic;
+            color: var(--dark-brown);
+            margin-bottom: 40px;
+            line-height: 1.8;
+            position: relative;
+            padding: 0 40px;
+        }
+        
+        .philosophy-quote::before,
+        .philosophy-quote::after {
+            content: '"';
+            font-size: 4rem;
+            color: var(--secondary-green);
+            opacity: 0.3;
+            position: absolute;
+        }
+        
+        .philosophy-quote::before {
+            top: -30px;
+            right: 0;
+        }
+        
+        .philosophy-quote::after {
+            bottom: -50px;
+            left: 0;
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-green);
+            z-index: 2;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 40px auto 25px;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .service-content {
+            padding: 0 30px 40px;
+            text-align: center;
+        }
+        
+        .service-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--secondary-green);
+        }
+        
+        /* Testimonials */
+        .testimonial-slider {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            display: none;
+        }
+        
+        .testimonial.active {
+            display: block;
+            animation: fadeIn 0.8s ease;
+        }
+        
+        .testimonial-text {
+            font-size: 1.4rem;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            position: relative;
+        }
+        
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--secondary-green);
+            opacity: 0.3;
+            position: absolute;
+        }
+        
+        .testimonial-text::before {
+            top: -20px;
+            right: -10px;
+        }
+        
+        .testimonial-text::after {
+            bottom: -40px;
+            left: -10px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .author-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-left: 20px;
+            border: 3px solid var(--secondary-green);
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            font-size: 1.3rem;
+            color: var(--dark-brown);
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: #777;
+        }
+        
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            margin: 0 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .slider-dot.active {
+            background: var(--gradient-green);
+            transform: scale(1.2);
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(rgba(61, 43, 31, 0.9), rgba(61, 43, 31, 0.9)), url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+        }
+        
+        .contact .section-title h2 {
+            color: white;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+        }
+        
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: white;
+        }
+        
+        .contact-details {
+            margin-bottom: 40px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--gradient-green);
+            transform: translateY(-5px);
+        }
+        
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 50px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: white;
+            font-family: 'Noto Naskh Arabic', serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-align: right;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary-green);
+            background: rgba(255, 255, 255, 0.12);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+            text-align: right;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-brown);
+            color: white;
+            padding: 80px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-logo {
+            font-family: 'El Messiri', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo span {
+            color: var(--primary-gold);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Arabic Calligraphy Decoration */
+        .arabic-calligraphy {
+            position: absolute;
+            font-family: 'Noto Naskh Arabic', serif;
+            font-size: 6rem;
+            color: rgba(0, 100, 66, 0.05);
+            z-index: -1;
+            user-select: none;
+        }
+        
+        .calligraphy-1 {
+            top: 10%;
+            left: 5%;
+            transform: rotate(-10deg);
+        }
+        
+        .calligraphy-2 {
+            bottom: 15%;
+            right: 8%;
+            transform: rotate(15deg);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero-content,
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .hero-image {
+                order: -1;
+            }
+            
+            .hero-img-container {
+                margin: 0 auto;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 300px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: left 0.4s ease;
+                box-shadow: 5px 0 20px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+            
+            nav ul.show {
+                left: 0;
+            }
+            
+            nav ul li {
+                margin: 20px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                z-index: 1000;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+            
+            .arabic-calligraphy {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 80px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+            
+            .about-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .testimonial {
+                padding: 40px 30px;
+            }
+            
+            .testimonial-text {
+                font-size: 1.2rem;
+            }
+            
+            .contact-form {
+                padding: 30px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+            
+            .philosophy-quote {
+                font-size: 1.5rem;
+                padding: 0 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-description {
+                font-size: 1.1rem;
+            }
+            
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            
+            .service-card {
+                margin-bottom: 30px;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .logo-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="arabic-loader">
+            <div class="arabic-symbol">ع</div>
+        </div>
+    </div>
+
+    <!-- Arabic Calligraphy Decorations -->
+    <div class="arabic-calligraphy calligraphy-1">لغة الضاد</div>
+    <div class="arabic-calligraphy calligraphy-2">بلاغة</div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-text">كريم <span>عصام</span></div>
+                    <div class="logo-icon">ع</div>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav>
+                    <ul id="navMenu">
+                        <li><a href="#home" class="active">الرئيسية</a></li>
+                        <li><a href="#about">عني</a></li>
+                        <li><a href="#philosophy">فلسفتي</a></li>
+                        <li><a href="#services">خدماتي</a></li>
+                        <li><a href="#testimonials">توصيات</a></li>
+                        <li><a href="#contact">اتصل بي</a></li>
+                        <li><a href="#contact" class="cta-button">احجز جلسة</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="hero-subtitle">مدرس اللغة العربية والأدب</span>
+                    <h1 class="hero-title">إحياء <span>جمال اللغة العربية</span> وأسرارها</h1>
+                    <p class="hero-description">بخبرة تزيد عن 10 سنوات في تدريس اللغة العربية، أسعى إلى تعزيز ارتباط الطلاب بلغتهم الأم وتذوق جمالياتها، من النحو والصرف إلى البلاغة والأدب.</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="cta-button">احجز جلسة تعليمية</a>
+                        <a href="#services" class="cta-button" style="background: transparent; color: var(--secondary-green); border: 2px solid var(--secondary-green);">استعرض البرامج</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="arabic-shapes">
+                        <div class="shape circle"></div>
+                        <div class="shape semi-circle"></div>
+                        <div class="shape arabesque"></div>
+                    </div>
+                    <div class="hero-img-container">
+                        <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="كريم عصام - مدرس اللغة العربية">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>عني</h2>
+            </div>
+            <div class="about-content">
+                <div>
+                    <div class="hero-img-container">
+                        <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="تدريس اللغة العربية">
+                    </div>
+                </div>
+                <div>
+                    <h3 style="font-size: 2.5rem; margin-bottom: 25px; color: var(--secondary-green);">رحلتي في تعليم العربية</h3>
+                    <p style="font-size: 1.2rem; margin-bottom: 20px; color: #555;">أعتقد أن اللغة العربية ليست مجرد وسيلة للتواصل، بل هي وعاء للثقافة والتراث والفكر. مهمتي هي إحياء حب هذه اللغة في قلوب الطلاب وكشف أسرارها وجمالياتها.</p>
+                    <p style="margin-bottom: 30px; color: #666;">بعد حصولي على الماجستير في اللغة العربية وآدابها من جامعة القاهرة، تخصصت في تدريس العربية للناطقين بها وغير الناطقين. طوّرت منهجية فريدة تجمع بين الأصالة والمعاصرة، لمساعدة الطلاب على فهم قواعد اللغة وتذوق جمال الأدب.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">10+</div>
+                            <div class="stat-text">سنوات خبرة</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">600+</div>
+                            <div class="stat-text">طالب استفاد</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">97%</div>
+                            <div class="stat-text">نسبة النجاح</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="section philosophy" id="philosophy">
+        <div class="container">
+            <div class="section-title">
+                <h2>فلسفتي التعليمية</h2>
+            </div>
+            <div class="philosophy-content">
+                <p class="philosophy-quote">اللغة العربية بحر واسع من المعاني والأساليب البلاغية، وهدفي هو تعليم الطلاب ليس فقط قواعد النحو والصرف، ولكن أيضاً كيف يسبحون في هذا البحر بثقة ويستخرجون منه اللآلئ.</p>
+                <div style="max-width: 700px; margin: 0 auto;">
+                    <p style="font-size: 1.2rem; color: #555; margin-bottom: 25px;">أركز على <strong>الفهم العميق</strong> للقواعد اللغوية بدلاً من الحفظ الآلي، وأربط الدروس بالأمثلة الحية من القرآن الكريم والشعر العربي والأدب المعاصر. من خلال <strong>المناقشات الأدبية</strong> و<strong>تحليل النصوص</strong> و<strong>التطبيقات العملية</strong>، أوجد بيئة تعليمية تفاعلية تشجع الطلاب على التعبير والإبداع.</p>
+                    <p style="font-size: 1.2rem; color: #555;">كل طالب لديه علاقة فريدة مع اللغة العربية. منهجي <strong>فردي</strong> و<strong>مرن</strong>، حيث أحدد احتياجات كل طالب وأبني عليها نحو التمكّن اللغوي.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>برامج تعليم العربية</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>النحو والصرف</h3>
+                        <p>شرح مبسط لقواعد النحو والصرف مع تطبيقات عملية لضمان الفهم العميق والتطبيق الصحيح في الكتابة والحديث.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-feather-alt"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>البلاغة والأدب</h3>
+                        <p>تعليم أسرار البلاغة العربية وتحليل النصوص الأدبية من الشعر الجاهلي إلى الأدب المعاصر.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-pen-nib"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>التعبير والإنشاء</h3>
+                        <p>تنمية مهارات الكتابة والتعبير بأنواعها المختلفة مع التركيز على الأسلوب السليم واللغة الصحيحة.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>الإلقاء والتحدث</h3>
+                        <p>تحسين مهارات التحدث والإلقاء مع التركيز على النطق السليم وتوظيف البلاغة في الحديث.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>تحضير الامتحانات</h3>
+                        <p>تحضير متخصص لامتحانات اللغة العربية في المدارس والجامعات مع استراتيجيات حل الأسئلة.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-globe-africa"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>العربية لغير الناطقين</h3>
+                        <p>برامج مكثفة لتعليم اللغة العربية لغير الناطقين بها من المستوى المبتدئ إلى المتقدم.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>قصص نجاح طلابي</h2>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial active" id="testimonial-1">
+                    <p class="testimonial-text">كنت أعاني من النحو والصرف طوال سنوات الدراسة، وكانت علاماتي متدنية. بعد ثلاثة أشهر فقط مع الأستاذ كريم، لم أفهم القواعد فقط بل أصبحت أستمتع بها! لديه طريقة فريدة في تبسيط القواعد المعقدة.</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>محمد أحمد</h4>
+                            <p>طالب جامعي، تحسن من 60% إلى 95%</p>
+                        </div>
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="محمد أحمد">
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial" id="testimonial-2">
+                    <p class="testimonial-text">كنت أستعد لامتحان القبول في كلية الأدب وكان مستواي ضعيفاً في البلاغة. طريقة الأستاذ كريم في تحليل النصوص البلاغية غيّرت نظرتي للأدب العربي تماماً. نجحت في الامتحان بتفوق بفضل منهجه الشامل.</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>سارة محمود</h4>
+                            <p>طالبة أدب عربي، جامعة الإسكندرية</p>
+                        </div>
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="سارة محمود">
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial" id="testimonial-3">
+                    <p class="testimonial-text">كطالب أجنبي أتعلم العربية، واجهت صعوبات كبيرة في النطق والقواعد. الأستاذ كريم صبور جداً ويستخدم وسائل تعليمية مبتكرة. خلال ستة أشهر، أصبحت أتحدث بطلاقة وأقرأ النصوص الأدبية.</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>جون سميث</h4>
+                            <p>طالب أمريكي يدرس العربية</p>
+                        </div>
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="جون سميث">
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-controls">
+                    <div class="slider-dot active" data-slide="0"></div>
+                    <div class="slider-dot" data-slide="1"></div>
+                    <div class="slider-dot" data-slide="2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>ابدأ رحلتك مع العربية</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>لنتواصل</h3>
+                    <p style="margin-bottom: 30px; opacity: 0.9;">مستعد لبدء رحلتك مع اللغة العربية؟ أقدم تقييماً مجانياً لفهم مستواك الحالي وإنشاء خطة تعليمية مخصصة.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>البريد الإلكتروني</h4>
+                                <p>karim@karimesam.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>الهاتف</h4>
+                                <p>+20 111 222 3333</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>العنوان</h4>
+                                <p>القاهرة، مصر | تعليم أونلاين عالمياً</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="الاسم الكامل" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="البريد الإلكتروني" required>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" required>
+                                <option value="" disabled selected>اختر البرنامج المناسب</option>
+                                <option value="nahw">النحو والصرف</option>
+                                <option value="balagha">البلاغة والأدب</option>
+                                <option value="expression">التعبير والإنشاء</option>
+                                <option value="speaking">الإلقاء والتحدث</option>
+                                <option value="exams">تحضير الامتحانات</option>
+                                <option value="nonnative">العربية لغير الناطقين</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="أخبرني عن أهدافك مع اللغة العربية، التحديات التي تواجهها، ومستواك الحالي..." required></textarea>
+                        </div>
+                        <button type="submit" class="cta-button" style="width: 100%;">أرسل الرسالة</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">كريم <span>عصام</span></div>
+                    <p style="opacity: 0.8; max-width: 300px;">مدرس اللغة العربية المختص في إحياء جمال اللغة وأسرارها، من خلال منهجية تعليمية تجمع بين الأصالة والابتكار.</p>
+                </div>
+                <div>
+                    <h4 style="font-size: 1.3rem; margin-bottom: 20px; color: white;">روابط سريعة</h4>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 10px;"><a href="#home" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s;">الرئيسية</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#about" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s;">عني</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#philosophy" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s;">فلسفتي</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#contact" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s;">اتصل بي</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="font-size: 1.3rem; margin-bottom: 20px; color: white;">أوقات التدريس</h4>
+                    <p style="opacity: 0.8;">الأحد - الخميس: 9 صباحاً - 8 مساءً</p>
+                    <p style="opacity: 0.8;">الجمعة: 10 صباحاً - 4 مساءً</p>
+                    <p style="opacity: 0.8;">السبت: حسب الموعد</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2023 كريم عصام لتعليم اللغة العربية. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Preloader
+        window.addEventListener('load', () => {
+            const preloader = document.querySelector('.preloader');
+            preloader.style.opacity = '0';
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500);
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.05)';
+            } else {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.05)';
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('show') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#navMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('show');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Testimonial slider
+        const testimonials = document.querySelectorAll('.testimonial');
+        const dots = document.querySelectorAll('.slider-dot');
+        let currentSlide = 0;
+        
+        function showSlide(index) {
+            testimonials.forEach(testimonial => {
+                testimonial.classList.remove('active');
+            });
+            
+            dots.forEach(dot => {
+                dot.classList.remove('active');
+            });
+            
+            testimonials[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentSlide = index;
+        }
+        
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+            });
+        });
+        
+        // Auto-advance testimonials
+        setInterval(() => {
+            let nextSlide = currentSlide + 1;
+            if (nextSlide >= testimonials.length) {
+                nextSlide = 0;
+            }
+            showSlide(nextSlide);
+        }, 6000);
+
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form data
+            const name = contactForm.querySelector('input[type="text"]').value;
+            
+            // Show success message
+            alert(`شكراً لك ${name}! تم إرسال استفسارك بنجاح. سأتصل بك خلال 24 ساعة لمناقشة أهدافك مع اللغة العربية.`);
+            
+            // Reset form
+            contactForm.reset();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add active class to navigation links on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('#navMenu a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (scrollY >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements to animate
+        document.querySelectorAll('.service-card, .stat-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+        
+        // Arabic shapes animation
+        const shapes = document.querySelectorAll('.shape');
+        shapes.forEach((shape, index) => {
+            shape.style.animation = `float ${3 + index}s ease-in-out infinite`;
+        });
+        
+        // Add floating animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes float {
+                0%, 100% { transform: translateY(0) rotate(0deg); }
+                50% { transform: translateY(-20px) rotate(5deg); }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Arabic calligraphy animation
+        const calligraphies = document.querySelectorAll('.arabic-calligraphy');
+        calligraphies.forEach((calligraphy, index) => {
+            calligraphy.style.animation = `pulse ${8 + index * 2}s ease-in-out infinite`;
+        });
+        
+        const style2 = document.createElement('style');
+        style2.textContent = `
+            @keyframes pulse {
+                0%, 100% { opacity: 0.05; }
+                50% { opacity: 0.1; }
+            }
+        `;
+        document.head.appendChild(style2);
+    </script>
+</body>
+</html>
